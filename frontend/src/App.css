@@ -1,0 +1,14 @@
+/* Asegura que el contenedor de React ocupe toda la pantalla */
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Estilo para que el scroll se vea más moderno */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
