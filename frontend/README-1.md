@@ -55,20 +55,6 @@ Aplicación web desarrollada con React y Node.js que permite gestionar productos
 
 ---
 
-## ⚠️ Problemas Actuales
-
-* ❌ Errores 401 (Unauthorized) en algunas peticiones
-* ❌ No todos los fetch incluyen el token JWT
-* ❌ Errores como:
-
-  * `.map is not a function`
-  * `.filter is not a function`
-* ❌ Problemas al vender productos (no registra movimiento correctamente)
-* ❌ Falta validación de respuestas del backend
-* ❌ Posibles errores 500 en el servidor
-
----
-
 ## 🚧 Funcionalidades por Mejorar
 
 * 🛡️ Mejor manejo de errores (try/catch + validaciones)
@@ -99,6 +85,4 @@ Aplicación web desarrollada con React y Node.js que permite gestionar productos
 
 ## 📈 Estado del Proyecto
 
-🟡 En desarrollo — funcional pero con errores en autenticación y consumo de API.
-
----
+🟡 En produccion 
