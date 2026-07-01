@@ -16,8 +16,10 @@ console.log("PASS:", process.env.EMAIL_PASS);
 const app = express();
 
 app.use(cors({
-  origin: "https://tudominio.com"
+  origin: "https://invecellplus.netlify.app",
+  credentials: true
 }));
+
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -140,7 +142,7 @@ app.post("/api/forgot-password", async (req, res) => {
     );
 
     const resetLink =
-      `https://tudominio.com/reset-password/${token}`;
+      `https://TU-SITIO-NETLIFY.netlify.app/reset-password/${token}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
