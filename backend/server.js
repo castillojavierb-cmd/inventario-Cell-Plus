@@ -16,7 +16,7 @@ console.log("PASS:", process.env.EMAIL_PASS);
 const app = express();
 
 app.use(cors({
-  origin: "https://invecellplus.netlify.app",
+  origin: "https://inventario-cell-plus.netlify.app",
   credentials: true
 }));
 
