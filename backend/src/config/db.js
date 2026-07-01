@@ -15,4 +15,4 @@ export const db = mysql.createPool({
   queueLimit: 0,
 });
 
-console.log("✅ Pool de MySQL creado");
+console.log("🚀 USANDO MYSQL CREATEPOOL");
