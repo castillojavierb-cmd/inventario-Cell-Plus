@@ -15,7 +15,9 @@ console.log("PASS:", process.env.EMAIL_PASS);
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://tudominio.com"
+}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -138,7 +140,7 @@ app.post("/api/forgot-password", async (req, res) => {
     );
 
     const resetLink =
-      `http://localhost:5173/reset-password/${token}`;
+      `https://tudominio.com/reset-password/${token}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
@@ -435,6 +437,8 @@ app.post("/api/movimientos", verificarToken, async (req, res) => {
 /* =========================
    🚀 SERVIDOR
 ========================= */
-app.listen(3000, () => {
-  console.log("Servidor corriendo en http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
