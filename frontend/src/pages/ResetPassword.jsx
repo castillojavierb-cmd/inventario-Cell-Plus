@@ -33,7 +33,7 @@ const ResetPassword = () => {
       setLoading(true);
 
       const res = await fetch(
-        "http://localhost:3000/api/reset-password",
+        "https://inventario-cell-plus-production-9224.up.railway.app/api/reset-password",
         {
           method: "POST",
           headers: {

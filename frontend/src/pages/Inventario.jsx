@@ -36,7 +36,7 @@ const Inventario = () => {
             }
 
             const res = await fetch(
-                `http://localhost:3000/api/productos?usuario_id=${user.id}`,
+                `https://inventario-cell-plus-production-9224.up.railway.app/api/productos?usuario_id=${user.id}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -99,8 +99,8 @@ const Inventario = () => {
             };
 
             const url = editando
-                ? `http://localhost:3000/api/productos/${editando}`
-                : "http://localhost:3000/api/productos";
+                ? `https://inventario-cell-plus-production-9224.up.railway.app/api/productos/${editando}`
+                : "https://inventario-cell-plus-production-9224.up.railway.app/api/productos";
 
             const res = await fetch(url, config);
 

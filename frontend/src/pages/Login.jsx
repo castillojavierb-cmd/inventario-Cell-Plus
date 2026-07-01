@@ -30,7 +30,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:3000/api/login", {
+      const res = await fetch("https://inventario-cell-plus-production-9224.up.railway.app/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -66,7 +66,7 @@ const Login = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/register", {
+      const res = await fetch("https://inventario-cell-plus-production-9224.up.railway.app/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

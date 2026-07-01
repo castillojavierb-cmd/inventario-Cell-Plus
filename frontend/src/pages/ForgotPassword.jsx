@@ -23,7 +23,7 @@ const ForgotPassword = () => {
 
     try {
       const res = await fetch(
-        "http://localhost:3000/api/forgot-password",
+        "https://inventario-cell-plus-production-9224.up.railway.app/api/forgot-password",
         {
           method: "POST",
           headers: {

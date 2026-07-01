@@ -11,7 +11,7 @@ export default function Sales() {
 
     try {
       const user = JSON.parse(userStr);
-      fetch("http://localhost:3000/api/movimientos", {
+      fetch("https://inventario-cell-plus-production-9224.up.railway.app/api/movimientos", {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("token")}`
         }

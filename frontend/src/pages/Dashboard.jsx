@@ -53,7 +53,7 @@ const Dashboard = () => {
             return;
         }
 
-        fetch(`http://localhost:3000/api/productos?usuario_id=${user.id}`, {
+        fetch(`https://inventario-cell-plus-production-9224.up.railway.app/api/productos?usuario_id=${user.id}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -74,7 +74,7 @@ const Dashboard = () => {
                 return;
             }
 
-            const resProd = await fetch(`http://localhost:3000/api/productos?usuario_id=${user.id}`, {
+            const resProd = await fetch(`https://inventario-cell-plus-production-9224.up.railway.app/api/productos?usuario_id=${user.id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
@@ -89,7 +89,7 @@ const Dashboard = () => {
                 setProductos([]);
             }
 
-            const resMov = await fetch(`http://localhost:3000/api/movimientos?usuario_id=${user.id}`, {
+            const resMov = await fetch(`https://inventario-cell-plus-production-9224.up.railway.app/api/movimientos?usuario_id=${user.id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
@@ -139,7 +139,7 @@ const Dashboard = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await fetch("http://localhost:3000/api/productos", {
+        await fetch("https://inventario-cell-plus-production-9224.up.railway.app/api/productos", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -180,7 +180,7 @@ const Dashboard = () => {
             }
 
             // CORRECCIÓN 1: Restar 1 al stock 
-            await fetch("http://localhost:3000/api/movimientos", {
+            await fetch("https://inventario-cell-plus-production-9224.up.railway.app/api/movimientos", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -205,7 +205,7 @@ const Dashboard = () => {
 
     const actualizarProducto = async (e) => {
         e.preventDefault();
-        await fetch(`http://localhost:3000/api/productos/${editando}`, {
+        await fetch(`https://inventario-cell-plus-production-9224.up.railway.app/api/productos/${editando}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

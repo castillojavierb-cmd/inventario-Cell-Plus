@@ -1,4 +1,4 @@
-const API = "http://localhost:3000/api";
+const API = "https://inventario-cell-plus-production-9224.up.railway.app/api";
 
 export const login = async (form) => {
   const res = await fetch(`${API}/login`, {

@@ -115,7 +115,7 @@ const Layout = () => {
         <div style={{ marginTop: "10px", display: "flex", justifyContent: "center", gap: "10px" }}>
           <button
             onClick={async () => {
-              await fetch(`http://localhost:3000/api/productos/categoria/${encodeURIComponent(nombre)}`, {
+              await fetch(`https://inventario-cell-plus-production-9224.up.railway.app/api/productos/categoria/${encodeURIComponent(nombre)}`, {
                 method: "DELETE",
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
               });
