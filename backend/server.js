@@ -23,12 +23,12 @@ app.use(cors({
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "smtp-relay.brevo.com",
   port: 587,
   secure: false,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.BREVO_USER,
+    pass: process.env.BREVO_PASS,
   },
 });
 
@@ -155,7 +155,7 @@ app.post("/api/forgot-password", async (req, res) => {
       `https://TU-SITIO-NETLIFY.netlify.app/reset-password/${token}`;
 
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: '"Inventario Cell Plus" <cellplus.soporte1@gmail.com>',
       to: email,
       subject: "Recuperación de contraseña",
       html: `
