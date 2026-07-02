@@ -33,8 +33,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-console.log("BREVO_USER:", process.env.BREVO_USER);
-console.log("BREVO_PASS:", process.env.BREVO_PASS ? "EXISTE" : "NO EXISTE");
 /* =========================
    🔐 REGISTRO
 ========================= */
