@@ -31,7 +31,8 @@ const transporter = nodemailer.createTransport({
     pass: process.env.BREVO_PASS,
   },
 });
-
+console.log("BREVO_USER:", process.env.BREVO_USER);
+console.log("BREVO_PASS:", process.env.BREVO_PASS ? "EXISTE" : "NO EXISTE");
 transporter.verify((error, success) => {
   if (error) {
     console.error("SMTP ERROR:", error);
