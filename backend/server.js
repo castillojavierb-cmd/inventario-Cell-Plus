@@ -1,3 +1,4 @@
+import axios from "axios";
 import express from "express";
 import cors from "cors";
 import bcrypt from "bcrypt";
@@ -10,8 +11,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log("EMAIL:", process.env.EMAIL_USER);
-console.log("PASS:", process.env.EMAIL_PASS);
 
 const app = express();
 
@@ -145,22 +144,39 @@ app.post("/api/forgot-password", async (req, res) => {
     );
 
     const resetLink =
-      `https://TU-SITIO-NETLIFY.netlify.app/reset-password/${token}`;
+      `https://inventario-cell-plus.netlify.app/reset-password/${token}`;
 
-    await transporter.sendMail({
-      from: '"Inventario Cell Plus" <cellplus.soporte1@gmail.com>',
-      to: email,
-      subject: "Recuperación de contraseña",
-      html: `
-    <h2>Recuperación de contraseña</h2>
 
-    <p>Haz clic en el siguiente enlace:</p>
+    await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: {
+          name: "Inventario Cell Plus",
+          email: "cellplus.soporte1@gmail.com",
+        },
+        to: [
+          {
+            email: email,
+          },
+        ],
+        subject: "Recuperación de contraseña",
+        htmlContent: `
+      <h2>Recuperación de contraseña</h2>
 
-    <a href="${resetLink}">
-      Restablecer contraseña
-    </a>
-  `
-    });
+      <p>Haz clic en el siguiente enlace:</p>
+
+      <a href="${resetLink}">
+        Restablecer contraseña
+      </a>
+    `,
+      },
+      {
+        headers: {
+          "api-key": process.env.BREVO_API_KEY,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     console.log("TOKEN GENERADO:", token);
 
