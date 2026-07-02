@@ -24,23 +24,17 @@ app.use(express.json());
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 587,
+  port: 2525,
   secure: false,
+  requireTLS: true,
   auth: {
     user: process.env.BREVO_USER,
     pass: process.env.BREVO_PASS,
   },
 });
+
 console.log("BREVO_USER:", process.env.BREVO_USER);
 console.log("BREVO_PASS:", process.env.BREVO_PASS ? "EXISTE" : "NO EXISTE");
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("SMTP ERROR:", error);
-  } else {
-    console.log("SMTP listo para enviar correos");
-  }
-});
-
 /* =========================
    🔐 REGISTRO
 ========================= */
