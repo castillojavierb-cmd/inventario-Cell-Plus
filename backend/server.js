@@ -6,11 +6,9 @@ import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import { verificarToken } from "./src/middleware/auth.js";
 import { db } from "./src/config/db.js";
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
-
 
 const app = express();
 
@@ -21,16 +19,6 @@ app.use(cors({
 
 app.use(express.json());
 
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 2525,
-  secure: false,
-  requireTLS: true,
-  auth: {
-    user: process.env.BREVO_USER,
-    pass: process.env.BREVO_PASS,
-  },
-});
 
 /* =========================
    🔐 REGISTRO
